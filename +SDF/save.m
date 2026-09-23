@@ -108,6 +108,8 @@ function ds_id = write_dataset(file_id, ds)
     elseif islogical(data)
         h5_type = 'H5T_NATIVE_INT';
         data = int32(data);
+    elseif isa(data, 'single')
+        h5_type = 'H5T_NATIVE_FLOAT';
     else
         h5_type = 'H5T_NATIVE_DOUBLE'; 
     end      
